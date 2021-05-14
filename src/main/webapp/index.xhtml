@@ -63,7 +63,8 @@
                     </span>
                     <br/>
                     <span class="ui-float-label">
-                        <p:inputText id="fechaVencimientop" value="#{manejadorBean_Inventario.fechaVencimientop}" />                                                 
+                        <p:datePicker id="fechaVencimientop" value="#{manejadorBean_Inventario.fechaVencimientopD}" yearNavigator="true" monthNavigator="false"/>
+                        <p:outputLabel for="@previous" value="Fecha de vencimiento"/>
                     </span>
                     <br/>
                     <span class="ui-float-label">
@@ -72,7 +73,7 @@
                     </span>
                     <br/>
                     <span class="ui-float-label">
-                        <p:inputText id="fechaRegistro" value="#{manejadorBean_Inventario.fechaRegistro}"/>                                   
+                        <p:datePicker id="fechaRegistro" value="#{manejadorBean_Inventario.fechaRegistroD}" yearNavigator="true" monthNavigator="false"/>                                   
                         <p:outputLabel for="@previous" value="Fecha de registro"/>
                     </span>
                     <br/>

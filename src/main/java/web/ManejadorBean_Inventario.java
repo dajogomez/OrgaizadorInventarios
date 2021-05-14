@@ -176,13 +176,13 @@ public class ManejadorBean_Inventario implements Serializable{
             OperInventario oper = new OperInventario();
             
             inventario i = new inventario();
-            /*Utilidades u = new  Utilidades();
+            Utilidades u = new  Utilidades();
             String fr = u.convertirFecha(fechaRegistroD);
-            String fv = u.convertirFecha(fechaVencimientopD);*/
+            String fv = u.convertirFecha(fechaVencimientopD);
             i.setCodigoP(this.codigoP);
             i.setNombrep(this.nombrep);
-            i.setFechaVencimientop(this.fechaVencimientop);
-            i.setFechaRegistro(this.fechaRegistro);
+            i.setFechaVencimientop(fv);
+            i.setFechaRegistro(fr);
             i.setValorProductop(this.valorProductop);
             i.setCantidadComprada(this.cantidadComprada);
             i.setCantidadDisponible(this.cantidadDisponible);
