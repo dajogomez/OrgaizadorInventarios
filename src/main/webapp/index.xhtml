@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+
+    <html>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Prueba con Primefaces</title>
+        </h:head>
+
+        <h:body>
+            <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages>
+                <p:panel header="Lista de productos">
+                
+                    <div class="card">
+                        <p:dataTable var="inventario" value="#{manejadorBean_Inventario.inventario}">
+                            <p:column headerText="Codigo">
+                                <h:outputText value="#{inventario.codigoP}" />
+                            </p:column>
+
+                            <p:column headerText="Nombre ">
+                                <h:outputText value="#{inventario.nombrep}" />
+                            </p:column>
+
+                            <p:column headerText="Fecha de vencimiento">
+                                <h:outputText value="#{inventario.fechaVencimientop}" />
+                            </p:column>
+
+                            <p:column headerText="Fecha de registro">
+                                <h:outputText value="#{inventario.fechaRegistro}" />
+                            </p:column>
+                            <p:column headerText="Valor de producto">
+                                <h:outputText value="#{inventario.valorProductop}" />
+                            </p:column>
+                            <p:column headerText="Cantidad comprada">
+                                <h:outputText value="#{inventario.cantidadComprada}" />
+                            </p:column>
+                            <p:column headerText="Cantidad actual">
+                                <h:outputText value="#{inventario.cantidadDisponible}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                    </p:panel>
+                    <br/>
+                    <br/>
+                    <p:panel header="Insertar producto">
+                    <span class="ui-float-label">
+                        <p:inputText id="codigop" value="#{manejadorBean_Inventario.codigoP}"/>
+                        <p:outputLabel for="@previous" value="Codigo"/>
+                    </span>
+                    <br/>
+                    <span class="ui-float-label">
+                        <p:inputText id="nombrep" value="#{manejadorBean_Inventario.nombrep}"/>
+                        <p:outputLabel for="@previous" value="Nombre"/>
+                    </span>
+                    <br/>
+                    <span class="ui-float-label">
+                        <p:calendar id="fechaVencimientop" value="#{manejadorBean_Inventario.fechaVencimientopS} "></p:calendar>
+                    </span>
+                    <br/>
+                    <span class="ui-float-label">
+                        <p:inputText id="valorProductoP" value="#{manejadorBean_Inventario.valorProductop}"/>
+                        <p:outputLabel for="@previous" value="Valor del producto"/>
+                    </span>
+                    <br/>
+                    <span class="ui-float-label">
+                        <p:calendar id="fechaRegistro" value="#{manejadorBean_Inventario.fechaRegistroS} "></p:calendar>
+                        <p:outputLabel for="@previous" value="Fecha de registro"/>
+                    </span>
+                    <br/>
+                    <span class="ui-float-label">
+                        <p:inputText id="cantidadComprada" value="#{manejadorBean_Inventario.cantidadComprada}"/>
+                        <p:outputLabel for="@previous" value="Cantidad comprada"/>
+                    </span>
+                    <br/>
+                    <span class="ui-float-label">
+                        <p:inputText id="cantidadDisponible" value="#{manejadorBean_Inventario.cantidadDisponible}"/>
+                        <p:outputLabel for="@previous" value="Cantidad disponible"/>
+                    </span>
+                    <br/>
+                    <br/>
+                    
+                    <p:commandButton value="Ingresar " action="#{manejadorBean_Inventario.guardar()}" update="msg"/>
+                    <br/>
+                    <br/>
+                    
+                    <p:commandButton value="Actualizar " action="#{manejadorBean_Inventario.actualizar()}" update="msg"/>
+                    <br/>
+                    <br/>
+                    <p:commandButton value="Volver " action="inicio"/>
+                    <br/>
+                    <br/>
+                    <h:outputLabel id="msg" value="#{manejadorBean_Inventario.mensaje}" /> 
+                </p:panel>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+
+    <html>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Inicio</title>
+        </h:head>
+
+        <h:body>
+            <h:form>
+                <style type="text/css">
+                    .ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell {
+                        text-align: center;
+                    }
+
+                    .customPanelGrid .ui-panelgrid-content {
+                        align-items: center;
+                    }
+                </style>
+                <p:panel header="Banner de inicio- Control de inventario" >
+               
+                </p:panel>
+                  <div class="card">
+                    <p:panelGrid columns="3" layout="grid" styleClass="showcase-text-align-center">
+                        <h:outputText value=""/>                       
+                        <h:outputText value=""/>                       
+                        <h:outputText value=""/>
+
+                        <h:outputText value=""/>
+                        <h:panelGroup style="display:block; text-align:center">   Es una aplicacion para controlar productos de una empresa a través de la inserción, actualización y muestra de los productos dentro del inventario, con la posiblidad de generar alertas cuando se estan por agotar los productos y con reportes para la empresa de la  cantidad disponible , cantidad de ventas y valor de ventas totales de cada producto .  </h:panelGroup>                       
+                        <h:outputText value=""/>
+
+                        <h:outputText value="" />
+                        <p:commandButton value="Continuar " action="index" />
+                        <h:outputText value=""/>
+                    </p:panelGrid>
+                </div>                              
+               
+                <p:panel >
+                    <h:outputText value="Institución: " style="color: orangered"/>
+                    <h:outputText value="Universidad Central" />
+                    <br>                        
+                    </br>
+                    <h:outputText value="Tutor:" style="color: orangered"/>
+                     <h:outputText value=" Giovanni Alexander Briceño Riveros"/>
+                    <br>                        
+                    </br>
+                    <h:outputText value="Autor: " style="color: orangered" />
+                    <h:outputText value="Juan Esteban Gómez Álvarez"/>
+                    <br>                        
+                    </br>
+                    <h:outputText value="Año: " style="color: orangered" />
+                    <h:outputText value="2021"/>
+                    <br>                        
+                    </br>
+                </p:panel>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>
