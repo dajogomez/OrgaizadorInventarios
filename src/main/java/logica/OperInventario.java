@@ -97,7 +97,7 @@ public class OperInventario implements Operaciones<inventario>{
                 ps.setInt(4, dato.getValorProductop());
                 ps.setInt(5,dato.getCantidadComprada());
                 ps.setInt(6,dato.getCantidadDisponible());
-                ps.setInt(7,dato.getProducto().getCodigo());
+                ps.setInt(7,dato.getCodigoP());
 
                 int rta = ps.executeUpdate();
                 return rta;

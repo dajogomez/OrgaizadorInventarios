@@ -14,7 +14,7 @@
         </h:head>
 
         <h:body>
-            <h:form>
+            <h:form id="inventario">
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate/>
                 </p:messages>
@@ -51,7 +51,7 @@
                     </p:panel>
                     <br/>
                     <br/>
-                    <p:panel header="Insertar producto">
+                    <p:panel id="iProducto" header="Insertar producto">
                     <span class="ui-float-label">
                         <p:inputNumber id="codigop" value="#{manejadorBean_Inventario.codigoP}"/>
                         <p:outputLabel for="@previous" value="Codigo"/>
@@ -96,6 +96,8 @@
                     <p:commandButton value="Actualizar " action="#{manejadorBean_Inventario.actualizar()}" update="msg"/>
                     <br/>
                     <br/>
+                     <p:commandButton value="Limpiar" update="iProducto" process="@this"
+                                      action="#{manejadorBean_Inventario.limpiarCampos()}" />
                     <h:outputLabel id="msg" value="#{manejadorBean_Inventario.mensaje}" /> 
                 </p:panel>
             </h:form>

@@ -22,6 +22,7 @@ import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import utilidades.Utilidades;
+import org.primefaces.PrimeFaces;
 /**
  *
  * @author chicu
@@ -195,20 +196,40 @@ public class ManejadorBean_Inventario implements Serializable{
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "Se presentó inconveniente en el almacenamiento, intente mas tarde "));
             }
         } 
+    public void limpiarCampos(){
+        this.codigoP = 0;
+        this.nombrep = null;
+        this.fechaVencimientop=null  ;
+        this.fechaVencimientopD= null ;
+        this.valorProductop= 0 ;
+        this.fechaRegistro= null;
+        this.fechaRegistroD = null;
+        this.cantidadComprada=0;
+        this.cantidadDisponible=0;
+
+
     
-public void actualizar() {
+        FacesMessage msg = new FacesMessage("Se limpiaron los campos correctamente");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+    public void actualizar() {
         try{
-        OperInventario oper = new OperInventario();
-        inventario i = new inventario();       
-        i.setCodigoP(this.codigoP);
-        i.setNombrep(this.nombrep);
-        i.setFechaVencimientop(this.fechaVencimientop);
-        i.setFechaRegistro(this.fechaRegistro);
-        i.setValorProductop(this.valorProductop);
-        i.setCantidadComprada(this.cantidadComprada);
-        i.setCantidadDisponible(this.cantidadDisponible);
-        System.out.println("producto " + i);
-        this.mensaje = "Se almacenó";
+         OperInventario oper = new OperInventario();
+            
+            inventario i = new inventario();
+            Utilidades u = new  Utilidades();
+            String fr = u.convertirFecha(fechaRegistroD);
+            String fv = u.convertirFecha(fechaVencimientopD);
+            i.setCodigoP(this.codigoP);
+            i.setNombrep(this.nombrep);
+            i.setFechaVencimientop(fv);
+            i.setFechaRegistro(fr);
+            i.setValorProductop(this.valorProductop);
+            i.setCantidadComprada(this.cantidadComprada);
+            i.setCantidadDisponible(this.cantidadDisponible);
+            System.out.println("producto " + i);
+            this.setMensaje("Se actualizó");
+            System.out.println();
         System.out.println();
         if (oper.actualizar(i) > 0) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Se modificó el producto"));
