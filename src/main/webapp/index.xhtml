@@ -53,7 +53,7 @@
                     <br/>
                     <p:panel header="Insertar producto">
                     <span class="ui-float-label">
-                        <p:inputText id="codigop" value="#{manejadorBean_Inventario.codigoP}"/>
+                        <p:inputNumber id="codigop" value="#{manejadorBean_Inventario.codigoP}"/>
                         <p:outputLabel for="@previous" value="Codigo"/>
                     </span>
                     <br/>
@@ -63,26 +63,26 @@
                     </span>
                     <br/>
                     <span class="ui-float-label">
-                        <p:calendar id="fechaVencimientop" value="#{manejadorBean_Inventario.fechaVencimientopS} "></p:calendar>
+                        <p:inputText id="fechaVencimientop" value="#{manejadorBean_Inventario.fechaVencimientop}" />                                                 
                     </span>
                     <br/>
                     <span class="ui-float-label">
-                        <p:inputText id="valorProductoP" value="#{manejadorBean_Inventario.valorProductop}"/>
+                        <p:inputNumber id="valorProductoP" value="#{manejadorBean_Inventario.valorProductop}"/>
                         <p:outputLabel for="@previous" value="Valor del producto"/>
                     </span>
                     <br/>
                     <span class="ui-float-label">
-                        <p:calendar id="fechaRegistro" value="#{manejadorBean_Inventario.fechaRegistroS} "></p:calendar>
+                        <p:inputText id="fechaRegistro" value="#{manejadorBean_Inventario.fechaRegistro}"/>                                   
                         <p:outputLabel for="@previous" value="Fecha de registro"/>
                     </span>
                     <br/>
                     <span class="ui-float-label">
-                        <p:inputText id="cantidadComprada" value="#{manejadorBean_Inventario.cantidadComprada}"/>
+                        <p:inputNumber id="cantidadComprada" value="#{manejadorBean_Inventario.cantidadComprada}"/>
                         <p:outputLabel for="@previous" value="Cantidad comprada"/>
                     </span>
                     <br/>
                     <span class="ui-float-label">
-                        <p:inputText id="cantidadDisponible" value="#{manejadorBean_Inventario.cantidadDisponible}"/>
+                        <p:inputNumber id="cantidadDisponible" value="#{manejadorBean_Inventario.cantidadDisponible}"/>
                         <p:outputLabel for="@previous" value="Cantidad disponible"/>
                     </span>
                     <br/>

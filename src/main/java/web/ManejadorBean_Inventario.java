@@ -15,17 +15,13 @@ import database.conexion;
 import javax.faces.bean.ManagedBean;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import org.primefaces.event.SelectEvent;
-import sun.java2d.pipe.SpanShapeRenderer.Simple;
-
+import utilidades.Utilidades;
 /**
  *
  * @author chicu
@@ -36,11 +32,11 @@ public class ManejadorBean_Inventario implements Serializable{
     private int codigoP ;
     private String nombrep ;
     private String mensaje;
-    private Date fechaVencimientop  ;
-    private String fechaVencimientopS  ;
+    private String fechaVencimientop  ;
+    private Date fechaVencimientopD  ;
     private int valorProductop ;
-    private Date fechaRegistro;
-    private String fechaRegistroS;
+    private String fechaRegistro;
+    private Date fechaRegistroD;
     private int cantidadComprada;
     private int cantidadDisponible;
     private List<inventario> inventario;
@@ -76,14 +72,14 @@ public class ManejadorBean_Inventario implements Serializable{
     /**
      * @return the fechaVencimientop
      */
-    public Date getFechaVencimientop() {
+    public String getFechaVencimientop() {
         return fechaVencimientop;
     }
 
     /**
      * @param fechaVencimientop the fechaVencimientop to set
      */
-    public void setFechaVencimientop(Date fechaVencimientop) {
+    public void setFechaVencimientop(String fechaVencimientop) {
         this.fechaVencimientop = fechaVencimientop;
     }
 
@@ -104,14 +100,14 @@ public class ManejadorBean_Inventario implements Serializable{
     /**
      * @return the fechaRegistro
      */
-    public Date getFechaRegistro() {
+    public String getFechaRegistro() {
         return fechaRegistro;
     }
 
     /**
      * @param fechaRegistro the fechaRegistro to set
      */
-    public void setFechaRegistro(Date fechaRegistro) {
+    public void setFechaRegistro(String fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
@@ -174,22 +170,15 @@ public class ManejadorBean_Inventario implements Serializable{
     this.inventario = oper.consultar();
     
 }
-    public void onDateSelect(SelectEvent<Date> event){
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        facesContext.addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO,"Date selected",format.format(event.getObject())));
-        
-    }
 
     public void guardar() {
-        try {
+
             OperInventario oper = new OperInventario();
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
             
             inventario i = new inventario();
-            this.fechaVencimientop = format.parse(fechaVencimientopS);
-            this.fechaRegistro = format.parse(fechaRegistroS);
-            
+            /*Utilidades u = new  Utilidades();
+            String fr = u.convertirFecha(fechaRegistroD);
+            String fv = u.convertirFecha(fechaVencimientopD);*/
             i.setCodigoP(this.codigoP);
             i.setNombrep(this.nombrep);
             i.setFechaVencimientop(this.fechaVencimientop);
@@ -205,11 +194,8 @@ public class ManejadorBean_Inventario implements Serializable{
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", "Se presentó inconveniente en el almacenamiento, intente mas tarde "));
             }
-        } catch (ParseException ex) {
-            Logger.getLogger(ManejadorBean_Inventario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
+        } 
+    
 public void actualizar() {
         try{
         OperInventario oper = new OperInventario();
@@ -235,31 +221,31 @@ public void actualizar() {
     }
 
     /**
-     * @return the fechaVencimientopS
+     * @return the fechaVencimientopD
      */
-    public String getFechaVencimientopS() {
-        return fechaVencimientopS;
+    public Date getFechaVencimientopD() {
+        return fechaVencimientopD;
     }
 
     /**
-     * @param fechaVencimientopS the fechaVencimientopS to set
+     * @param fechaVencimientopD the fechaVencimientopD to set
      */
-    public void setFechaVencimientopS(String fechaVencimientopS) {
-        this.fechaVencimientopS = fechaVencimientopS;
+    public void setFechaVencimientopD(Date fechaVencimientopD) {
+        this.fechaVencimientopD = fechaVencimientopD;
     }
 
     /**
-     * @return the fechaRegistroS
+     * @return the fechaRegistroD
      */
-    public String getFechaRegistroS() {
-        return fechaRegistroS;
+    public Date getFechaRegistroD() {
+        return fechaRegistroD;
     }
 
     /**
-     * @param fechaRegistroS the fechaRegistroS to set
+     * @param fechaRegistroD the fechaRegistroD to set
      */
-    public void setFechaRegistroS(String fechaRegistroS) {
-        this.fechaRegistroS = fechaRegistroS;
+    public void setFechaRegistroD(Date fechaRegistroD) {
+        this.fechaRegistroD = fechaRegistroD;
     }
-   
+ 
 }

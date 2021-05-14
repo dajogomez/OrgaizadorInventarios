@@ -6,7 +6,6 @@
  */
 package dto;
 
-import java.util.Date;
 
 /**
  *
@@ -16,9 +15,9 @@ public class inventario {
     private producto producto;
     private int codigoP ;
     private String nombrep ;
-    private Date fechaVencimientop  ;
+    private String fechaVencimientop  ;
     private int valorProductop ;
-    private Date fechaRegistro;
+    private String fechaRegistro;
     private int cantidadComprada;
     private int cantidadDisponible;
 
@@ -39,14 +38,14 @@ public class inventario {
     /**
      * @return the fechaRegistro
      */
-    public Date getFechaRegistro() {
+    public String getFechaRegistro() {
         return fechaRegistro;
     }
 
     /**
      * @param fechaRegistro the fechaRegistro to set
      */
-    public void setFechaRegistro(Date fechaRegistro) {
+    public void setFechaRegistro(String fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
@@ -108,14 +107,14 @@ public class inventario {
     /**
      * @return the fechaVencimientop
      */
-    public Date getFechaVencimientop() {
+    public String getFechaVencimientop() {
         return fechaVencimientop;
     }
 
     /**
      * @param fechaVencimientop the fechaVencimientop to set
      */
-    public void setFechaVencimientop(Date fechaVencimientop) {
+    public void setFechaVencimientop( String fechaVencimientop) {
         this.fechaVencimientop = fechaVencimientop;
     }
 

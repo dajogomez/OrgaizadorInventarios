@@ -16,9 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
-import java.util.Date;
+
+
 
 /**
  *
@@ -35,8 +34,8 @@ public class OperInventario implements Operaciones<inventario>{
                 PreparedStatement ps =  cActiva.prepareStatement(sql);
                 ps.setInt(1, dato.getCodigoP());
                 ps.setString(2, dato.getNombrep());
-                ps.setString(3, dato.getFechaVencimientop().toString());
-                ps.setString(4, dato.getFechaRegistro().toString());
+                ps.setString(3, dato.getFechaVencimientop());
+                ps.setString(4, dato.getFechaRegistro());
                 ps.setInt(5, dato.getValorProductop());
                 ps.setInt(6, dato.getCantidadComprada());
                 ps.setInt(7, dato.getCantidadDisponible());
@@ -64,22 +63,11 @@ public class OperInventario implements Operaciones<inventario>{
                 PreparedStatement ps =  cActiva.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
                 while(rs.next()){                  
-                    inventario i = new inventario();
-                    
-                    Date fechaV = null;
-                    Date fechaR = null;
-                    try {
-                        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                        fechaV = formato.parse(rs.getString("fechaVencimiento"));
-                        fechaV = formato.parse(rs.getString("fechaRegistro"));
-                        
-                    } catch (ParseException ex) {
-                        Logger.getLogger(OperInventario.class.getName()).log(Level.SEVERE, null, ex);
-                    }                    
+                    inventario i = new inventario();                                      
                     i.setCodigoP(rs.getInt("codigo"));
                     i.setNombrep(rs.getString("nombre"));
-                    i.setFechaVencimientop(fechaV);
-                    i.setFechaRegistro(fechaR);
+                    i.setFechaVencimientop(rs.getString("fechaVencimiento"));
+                    i.setFechaRegistro(rs.getString("fechaRegistro"));
                     i.setValorProductop(rs.getInt("valorProducto"));
                     i.setCantidadComprada(rs.getInt("cantidadComprada"));
                     i.setCantidadDisponible(rs.getInt("cantidadActual"));             
@@ -103,10 +91,10 @@ public class OperInventario implements Operaciones<inventario>{
             try {
                 String sql = "UPDATE producto SET nombre = ?, fechaVencimiento = ?, fechaRegistro = ?, valorProducto = ?, cantidadComprada = ?, cantidadActual = ? Where  codigo = ?";
                 PreparedStatement ps =  cActiva.prepareStatement(sql);
-                ps.setString(1, dato.getProducto().getNombre());
-                ps.setString(2,dato.getProducto().getFechaVencimiento().toString());
-                ps.setString(3,dato.getFechaRegistro().toString());
-                ps.setInt(4, dato.getProducto().getValorProducto());
+                ps.setString(1, dato.getNombrep());
+                ps.setString(2,dato.getFechaVencimientop());
+                ps.setString(3,dato.getFechaRegistro());
+                ps.setInt(4, dato.getValorProductop());
                 ps.setInt(5,dato.getCantidadComprada());
                 ps.setInt(6,dato.getCantidadDisponible());
                 ps.setInt(7,dato.getProducto().getCodigo());
