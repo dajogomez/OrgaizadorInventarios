@@ -10,54 +10,43 @@
     <html>
         <h:head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-            <title>Inicio</title>
+            <title>Pagina de inicio</title>
+            <link href="configIni.css" rel="stylesheet" type="text/css"/>
         </h:head>
-
-        <h:body>
-            <h:form>
-                <style type="text/css">
-                    .ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell {
-                        text-align: center;
-                    }
-
-                    .customPanelGrid .ui-panelgrid-content {
-                        align-items: center;
-                    }
-                </style>
-                <p:panel header="Control de inventario" >
-               
-                </p:panel>
-                  <div class="card">
-                    <p:panelGrid columns="3" layout="grid" styleClass="showcase-text-align-center">
-                        <h:outputText value=""/>                       
-                        <h:outputText value=""/>                       
-                        <h:outputText value=""/>
-
-                        <h:outputText value=""/>
-                        <h:panelGroup style="display:block; text-align:center">   Es una aplicacion para controlar productos de una empresa a través de la inserción, actualización y muestra de los productos dentro del inventario, con la posiblidad de generar alertas cuando se estan por agotar los productos y con reportes para la empresa de la  cantidad disponible , cantidad de ventas y valor de ventas totales de cada producto .  </h:panelGroup>                       
-                        <h:outputText value=""/>
-
-                        <h:outputText value="" />
-                        <p:commandButton value="Continuar " action="index" />
-                        <h:outputText value=""/>
-                    </p:panelGrid>
-                </div>                              
-               
-                <p:panel >
-                    <h:outputText value="Institución: " style="color: orangered"/>
-                    <h:outputText value="Universidad Central " />
-                    
-                    <h:outputText value="Tutor:" style="color: orangered"/>
-                     <h:outputText value=" Giovanni Alexander Briceño Riveros "/>
-                    
-                    <h:outputText value="Autor: " style="color: orangered" />
-                    <h:outputText value="Juan Esteban Gómez Álvarez "/>
-                    
-                    <h:outputText value="Año: " style="color: orangered" />
-                    <h:outputText value="2021 "/>
-                    
-                </p:panel>
-            </h:form>
+        <h:body >
+            <main>
+                <section class="contenedor banner">
+                    <div class="contenedor-banner">
+                        <h2>B</h2>
+                        <h2>I</h2>
+                        <h2>E</h2>
+                        <h2>N</h2>
+                        <h2>V</h2>
+                        <h2>E</h2>
+                        <h2>N</h2>
+                        <h2>I</h2>
+                        <h2>D</h2>
+                        <h2>O</h2>
+                    </div>
+                </section>
+                <section class="contenedor descripcion">
+                    <div class="contenedor-descripcion">
+                        <br/>
+                        <h3 class="titulo">  Programa de Control de inventario  </h3>
+                        <h4>Es una aplicacion para controlar productos de una empresa a través de la inserción, actualización y muestra de los productos dentro del inventario, con la posiblidad de generar alertas cuando se estan por agotar los productos y con reportes para la empresa de la  cantidad disponible , cantidad de ventas y valor de ventas totales de cada producto .</h4>
+                        <div class="centrado-boton">
+                        <h:form>
+                            <p:commandButton value="Continuar" action="index"/>
+                        </h:form>
+                        </div>
+                    </div>
+                </section>
+                <footer>
+                    <div class="contenedor-footer">
+                        <h4>Universidad Central - Autor: Juan Esteban Gómez Álvarez - Tutor: Giovanny Alexander Briceño Riveros - 2021</h4>
+                    </div>
+                </footer>
+            </main>
         </h:body>
     </html>
 </f:view>
