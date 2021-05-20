@@ -21,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import dto.reporte;
 import utilidades.Utilidades;
 import org.primefaces.PrimeFaces;
 /**
@@ -240,7 +241,12 @@ public class ManejadorBean_Inventario implements Serializable{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning", " Debe llenar todos los campos de la actualizacion, intente de nuevo"));
         }
     }
-
+    public void reporte() {
+        reporte rep = new reporte();
+        rep.generarReporte();
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "se generó un reporte "));
+        
+    }
     /**
      * @return the fechaVencimientopD
      */

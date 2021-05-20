@@ -96,6 +96,9 @@
                     <p:commandButton value="Actualizar " action="#{manejadorBean_Inventario.actualizar()}" update="msg"/>
                     <br/>
                     <br/>
+                    <p:commandButton value="Reporte " action="#{manejadorBean_Inventario.reporte()}" update="msg"/>
+                    <br/>
+                    <br/>
                      <p:commandButton value="Limpiar" update="iProducto" process="@this"
                                       action="#{manejadorBean_Inventario.limpiarCampos()}" />
                     <h:outputLabel id="msg" value="#{manejadorBean_Inventario.mensaje}" /> 

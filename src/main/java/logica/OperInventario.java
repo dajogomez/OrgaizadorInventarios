@@ -83,6 +83,35 @@ public class OperInventario implements Operaciones<inventario>{
         }
         return datos;
     }
+   @Override
+    public List<inventario> dataReporte() {
+        conexion c = new conexion();
+        Connection cActiva = c.conectarse();
+        List<inventario> datos = new ArrayList<>();
+        if (cActiva != null){
+            try {
+                String sql = "select codigo, nombre , valorProducto, cantidadComprada, cantidadActual  from producto";
+                PreparedStatement ps =  cActiva.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){                  
+                    inventario i = new inventario();                                      
+                    i.setCodigoP(rs.getInt("codigo"));
+                    i.setNombrep(rs.getString("nombre"));                   
+                    i.setValorProductop(rs.getInt("valorProducto"));
+                    i.setCantidadComprada(rs.getInt("cantidadComprada"));
+                    i.setCantidadDisponible(rs.getInt("cantidadActual"));             
+                    datos.add(i);
+                }
+            }
+             catch (SQLException ex) {
+                Logger.getLogger(OperInventario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            finally{
+                c.desconectase(cActiva);
+            }
+        }
+        return datos;
+    }
 @Override
     public int actualizar(inventario dato) {
         conexion c = new conexion();

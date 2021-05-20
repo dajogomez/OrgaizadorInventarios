@@ -14,5 +14,6 @@ import java.util.List;
 public interface Operaciones<T> {
     public int insertar(T dato);
     public List<T> consultar();
+    public List<T> dataReporte();
     public int actualizar(T dato);    
 }
