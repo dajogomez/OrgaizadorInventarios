@@ -7,6 +7,7 @@ package logica;
 
 import dto.inventario;
 import database.conexion;
+import dto.producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,11 +33,11 @@ public class OperInventario implements Operaciones<inventario>{
             try {
                 String sql = "insert into producto (codigo, nombre, fechaVencimiento, fechaRegistro, valorProducto, cantidadComprada, cantidadActual ) values (?,?,?,?,?,?,?)";
                 PreparedStatement ps =  cActiva.prepareStatement(sql);
-                ps.setInt(1, dato.getCodigoP());
-                ps.setString(2, dato.getNombrep());
-                ps.setString(3, dato.getFechaVencimientop());
+                ps.setInt(1, dato.getProducto().getCodigo());
+                ps.setString(2, dato.getProducto().getNombre());
+                ps.setString(3, dato.getProducto().getFechaVencimiento());
                 ps.setString(4, dato.getFechaRegistro());
-                ps.setInt(5, dato.getValorProductop());
+                ps.setInt(5, dato.getProducto().getValorProducto());
                 ps.setInt(6, dato.getCantidadComprada());
                 ps.setInt(7, dato.getCantidadDisponible());
 
@@ -63,12 +64,14 @@ public class OperInventario implements Operaciones<inventario>{
                 PreparedStatement ps =  cActiva.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
                 while(rs.next()){                  
-                    inventario i = new inventario();                                      
-                    i.setCodigoP(rs.getInt("codigo"));
-                    i.setNombrep(rs.getString("nombre"));
-                    i.setFechaVencimientop(rs.getString("fechaVencimiento"));
+                    inventario i = new inventario(); 
+                    producto p = new producto();
+                    p.setCodigo(rs.getInt("codigo"));
+                    p.setNombre(rs.getString("nombre"));
+                    p.setFechaVencimiento(rs.getString("fechaVencimiento"));
+                    p.setValorProducto(rs.getInt("valorProducto"));
+                    i.setProducto(p);
                     i.setFechaRegistro(rs.getString("fechaRegistro"));
-                    i.setValorProductop(rs.getInt("valorProducto"));
                     i.setCantidadComprada(rs.getInt("cantidadComprada"));
                     i.setCantidadDisponible(rs.getInt("cantidadActual"));             
                     datos.add(i);
@@ -94,10 +97,12 @@ public class OperInventario implements Operaciones<inventario>{
                 PreparedStatement ps =  cActiva.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
                 while(rs.next()){                  
-                    inventario i = new inventario();                                      
-                    i.setCodigoP(rs.getInt("codigo"));
-                    i.setNombrep(rs.getString("nombre"));                   
-                    i.setValorProductop(rs.getInt("valorProducto"));
+                    inventario i = new inventario();
+                    producto p = new producto();
+                    p.setCodigo(rs.getInt("codigo"));
+                    p.setNombre(rs.getString("nombre"));
+                    p.setValorProducto(rs.getInt("valorProducto"));
+                    i.setProducto(p);
                     i.setCantidadComprada(rs.getInt("cantidadComprada"));
                     i.setCantidadDisponible(rs.getInt("cantidadActual"));             
                     datos.add(i);
@@ -120,13 +125,13 @@ public class OperInventario implements Operaciones<inventario>{
             try {
                 String sql = "UPDATE producto SET nombre = ?, fechaVencimiento = ?, fechaRegistro = ?, valorProducto = ?, cantidadComprada = ?, cantidadActual = ? Where  codigo = ?";
                 PreparedStatement ps =  cActiva.prepareStatement(sql);
-                ps.setString(1, dato.getNombrep());
-                ps.setString(2,dato.getFechaVencimientop());
+                ps.setString(1, dato.getProducto().getNombre());
+                ps.setString(2,dato.getProducto().getFechaVencimiento());
                 ps.setString(3,dato.getFechaRegistro());
-                ps.setInt(4, dato.getValorProductop());
+                ps.setInt(4, dato.getProducto().getValorProducto());
                 ps.setInt(5,dato.getCantidadComprada());
                 ps.setInt(6,dato.getCantidadDisponible());
-                ps.setInt(7,dato.getCodigoP());
+                ps.setInt(7,dato.getProducto().getCodigo());
 
                 int rta = ps.executeUpdate();
                 return rta;

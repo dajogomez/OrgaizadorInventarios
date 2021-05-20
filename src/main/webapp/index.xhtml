@@ -23,22 +23,22 @@
                     <div class="card">
                         <p:dataTable var="inventario" value="#{manejadorBean_Inventario.inventario}">
                             <p:column headerText="Codigo">
-                                <h:outputText value="#{inventario.codigoP}" />
+                                <h:outputText value="#{inventario.producto.codigo}" />
                             </p:column>
 
                             <p:column headerText="Nombre ">
-                                <h:outputText value="#{inventario.nombrep}" />
+                                <h:outputText value="#{inventario.producto.nombre}" />
                             </p:column>
 
                             <p:column headerText="Fecha de vencimiento">
-                                <h:outputText value="#{inventario.fechaVencimientop}" />
+                                <h:outputText value="#{inventario.producto.fechaVencimiento}" />
                             </p:column>
 
                             <p:column headerText="Fecha de registro">
                                 <h:outputText value="#{inventario.fechaRegistro}" />
                             </p:column>
                             <p:column headerText="Valor de producto">
-                                <h:outputText value="#{inventario.valorProductop}" />
+                                <h:outputText value="#{inventario.producto.valorProducto}" />
                             </p:column>
                             <p:column headerText="Cantidad comprada">
                                 <h:outputText value="#{inventario.cantidadComprada}" />

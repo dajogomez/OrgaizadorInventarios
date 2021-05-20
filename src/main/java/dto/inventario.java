@@ -13,10 +13,10 @@ package dto;
  */
 public class inventario {
     private producto producto;
-    private int codigoP ;
-    private String nombrep ;
-    private String fechaVencimientop  ;
-    private int valorProductop ;
+    //private int codigoP ;
+   // private String nombrep ;
+    //private String fechaVencimientop  ;
+   // private int valorProductop ;
     private String fechaRegistro;
     private int cantidadComprada;
     private int cantidadDisponible;
@@ -79,66 +79,67 @@ public class inventario {
     /**
      * @return the codigoP
      */
-    public int getCodigoP() {
+  /*  public int getCodigoP() {
         return codigoP;
     }
 
     /**
      * @param codigoP the codigoP to set
      */
-    public void setCodigoP(int codigoP) {
+   /* public void setCodigoP(int codigoP) {
         this.codigoP = codigoP;
     }
 
     /**
      * @return the nombrep
      */
-    public String getNombrep() {
+    /*public String getNombrep() {
         return nombrep;
     }
 
     /**
      * @param nombrep the nombrep to set
      */
-    public void setNombrep(String nombrep) {
+    /*public void setNombrep(String nombrep) {
         this.nombrep = nombrep;
     }
 
     /**
      * @return the fechaVencimientop
      */
-    public String getFechaVencimientop() {
+   /* public String getFechaVencimientop() {
         return fechaVencimientop;
     }
 
     /**
      * @param fechaVencimientop the fechaVencimientop to set
      */
-    public void setFechaVencimientop( String fechaVencimientop) {
+   /* public void setFechaVencimientop( String fechaVencimientop) {
         this.fechaVencimientop = fechaVencimientop;
     }
 
     /**
      * @return the valorProductop
      */
-    public int getValorProductop() {
+    /*public int getValorProductop() {
         return valorProductop;
     }
 
     /**
      * @param valorProductop the valorProductop to set
      */
-    public void setValorProductop(int valorProductop) {
+   /* public void setValorProductop(int valorProductop) {
         this.valorProductop = valorProductop;
     }     
+    */
     @Override
     public String toString() {
       
-            return this.codigoP+""+
-                    this.nombrep+""+
-                    this.fechaVencimientop+""+
+            return this.producto.getCodigo()+""+
+                    this.producto.getNombre()+""+
+                    this.producto.getFechaVencimiento()+""+
                     this.fechaRegistro+""+
-                    this.valorProductop+""+
+                    this.producto.getValorProducto()+""+
                     this.cantidadComprada+""+
                     this.cantidadDisponible;
                   }

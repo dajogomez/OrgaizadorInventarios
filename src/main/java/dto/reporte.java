@@ -39,11 +39,11 @@ public class reporte {
                    FileWriter escribir = new FileWriter(archivo);
                for(int i = 0; i < datosIn.size(); i++) {
                    escribir.write(
-                                   "Codigo: "+datosIn.get(i).getCodigoP()+
-                                   " Nombre: "+datosIn.get(i).getNombrep()+
+                                   "Codigo: "+datosIn.get(i).getProducto().getCodigo()+
+                                   " Nombre: "+datosIn.get(i).getProducto().getNombre()+
                                    " Cantidad disponible: "+datosIn.get(i).getCantidadDisponible()+
                                    " Total de ventas: "+cantidadV(datosIn.get(i).getCantidadDisponible(), datosIn.get(i).getCantidadComprada())+
-                                   " Valor total de ventas: "+valorV(datosIn.get(i).getValorProductop(), cantidadV(datosIn.get(i).getCantidadDisponible(), datosIn.get(i).getCantidadComprada()))+
+                                   " Valor total de ventas: "+valorV(datosIn.get(i).getProducto().getValorProducto(), cantidadV(datosIn.get(i).getCantidadDisponible(), datosIn.get(i).getCantidadComprada()))+
                                     "\n"       );
                    
                } 

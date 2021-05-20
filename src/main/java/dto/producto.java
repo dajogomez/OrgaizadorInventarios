@@ -13,7 +13,7 @@ import java.util.Date;
 public class producto {
     private int codigo;
     private String nombre;
-    private Date fechaVencimiento;
+    private String fechaVencimiento;
     private int valorProducto;
 
     /**
@@ -47,14 +47,14 @@ public class producto {
     /**
      * @return the fechaVencimiento
      */
-    public Date getFechaVencimiento() {
+    public String getFechaVencimiento() {
         return fechaVencimiento;
     }
 
     /**
      * @param fechaVencimiento the fechaVencimiento to set
      */
-    public void setFechaVencimiento(Date fechaVencimiento) {
+    public void setFechaVencimiento(String fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
     }
 

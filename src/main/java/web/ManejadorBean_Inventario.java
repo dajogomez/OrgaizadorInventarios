@@ -178,14 +178,16 @@ public class ManejadorBean_Inventario implements Serializable{
             OperInventario oper = new OperInventario();
             
             inventario i = new inventario();
+            producto p = new producto();
             Utilidades u = new  Utilidades();
             String fr = u.convertirFecha(fechaRegistroD);
             String fv = u.convertirFecha(fechaVencimientopD);
-            i.setCodigoP(this.codigoP);
-            i.setNombrep(this.nombrep);
-            i.setFechaVencimientop(fv);
+            p.setCodigo(codigoP);
+            p.setNombre(nombrep);
+            p.setFechaVencimiento(fv);
+            p.setValorProducto(valorProductop);
+            i.setProducto(p);
             i.setFechaRegistro(fr);
-            i.setValorProductop(this.valorProductop);
             i.setCantidadComprada(this.cantidadComprada);
             i.setCantidadDisponible(this.cantidadDisponible);
             System.out.println("producto " + i);
@@ -218,14 +220,16 @@ public class ManejadorBean_Inventario implements Serializable{
          OperInventario oper = new OperInventario();
             
             inventario i = new inventario();
+            producto p= new producto();
             Utilidades u = new  Utilidades();
             String fr = u.convertirFecha(fechaRegistroD);
             String fv = u.convertirFecha(fechaVencimientopD);
-            i.setCodigoP(this.codigoP);
-            i.setNombrep(this.nombrep);
-            i.setFechaVencimientop(fv);
+            p.setCodigo(codigoP);
+            p.setNombre(nombrep);
+            p.setFechaVencimiento(fv);
+            p.setValorProducto(valorProductop);
+            i.setProducto(p);
             i.setFechaRegistro(fr);
-            i.setValorProductop(this.valorProductop);
             i.setCantidadComprada(this.cantidadComprada);
             i.setCantidadDisponible(this.cantidadDisponible);
             System.out.println("producto " + i);
