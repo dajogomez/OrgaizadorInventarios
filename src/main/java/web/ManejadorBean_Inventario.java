@@ -22,6 +22,7 @@ import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import dto.reporte;
+import logica.generarReporte;
 import utilidades.Utilidades;
 import org.primefaces.PrimeFaces;
 /**
@@ -246,8 +247,9 @@ public class ManejadorBean_Inventario implements Serializable{
         }
     }
     public void reporte() {
-        reporte rep = new reporte();
-        rep.generarReporte();
+        //reporte rep = new reporte();
+        generarReporte L = new generarReporte();
+        L.generarReportee();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "se generó un reporte "));
         
     }

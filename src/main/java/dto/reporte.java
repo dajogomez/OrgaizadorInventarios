@@ -5,11 +5,8 @@
  */
 package dto;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
-import logica.OperInventario;
+
 
 /**
  *
@@ -21,37 +18,6 @@ public class reporte {
     private int valorVentasTotales;
     private List<inventario> datosIn;
     
-    public int cantidadV(int cantidadActual, int cantidadComprada){
-        cantidadVentas = cantidadComprada - cantidadActual; 
-        return cantidadVentas;
-    }
-    public int valorV(int valorProducto, int cantidadV){
-        valorVentasTotales = valorProducto*cantidadV;
-        return valorVentasTotales;
-    }
-    public void generarReporte(){       
-       OperInventario oper = new OperInventario();
-        this.datosIn= oper.dataReporte();
-        try{
-            //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
-            File archivo = new File("report.txt");
-             //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
-                   FileWriter escribir = new FileWriter(archivo);
-               for(int i = 0; i < datosIn.size(); i++) {
-                   escribir.write(
-                                   "Codigo: "+datosIn.get(i).getProducto().getCodigo()+
-                                   " Nombre: "+datosIn.get(i).getProducto().getNombre()+
-                                   " Cantidad disponible: "+datosIn.get(i).getCantidadDisponible()+
-                                   " Total de ventas: "+cantidadV(datosIn.get(i).getCantidadDisponible(), datosIn.get(i).getCantidadComprada())+
-                                   " Valor total de ventas: "+valorV(datosIn.get(i).getProducto().getValorProducto(), cantidadV(datosIn.get(i).getCantidadDisponible(), datosIn.get(i).getCantidadComprada()))+
-                                    "\n"       );
-                   
-               } 
-               escribir.close(); 
-    }catch (IOException e) {
-            System.out.println("Error al escribir");
-        }
-    }
     /**
      * @return the inventario
      */
@@ -92,6 +58,20 @@ public class reporte {
      */
     public void setValorVentasTotales(int valorVentasTotales) {
         this.valorVentasTotales = valorVentasTotales;
+    }
+
+    /**
+     * @return the datosIn
+     */
+    public List<inventario> getDatosIn() {
+        return datosIn;
+    }
+
+    /**
+     * @param datosIn the datosIn to set
+     */
+    public void setDatosIn(List<inventario> datosIn) {
+        this.datosIn = datosIn;
     }
 
 
