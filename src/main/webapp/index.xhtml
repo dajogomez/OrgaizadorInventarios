@@ -52,53 +52,64 @@
                     <br/>
                     <br/>
                     <p:panel id="iProducto" header="Insertar producto">
-                    <span class="ui-float-label">
+                        <p:outputLabel  value="Codigo"/>
+                        <br/>
+                    
                         <p:inputNumber id="codigop" value="#{manejadorBean_Inventario.codigoP}"/>
-                        <p:outputLabel for="@previous" value="Codigo"/>
-                    </span>
+                        
+                    
                     <br/>
-                    <span class="ui-float-label">
-                        <p:inputText id="nombrep" value="#{manejadorBean_Inventario.nombrep}"/>
                         <p:outputLabel for="@previous" value="Nombre"/>
-                    </span>
+                        <br/>
+                    
+                        <p:inputText id="nombrep" value="#{manejadorBean_Inventario.nombrep}"/>
+                        
+
                     <br/>
-                    <span class="ui-float-label">
-                        <p:datePicker id="fechaVencimientop" value="#{manejadorBean_Inventario.fechaVencimientopD}" yearNavigator="true" monthNavigator="false"/>
                         <p:outputLabel for="@previous" value="Fecha de vencimiento"/>
-                    </span>
+                        <br/>
+                    
+                        <p:datePicker id="fechaVencimientop" value="#{manejadorBean_Inventario.fechaVencimientopD}" yearNavigator="true" monthNavigator="false"/>
+                        
                     <br/>
-                    <span class="ui-float-label">
-                        <p:inputNumber id="valorProductoP" value="#{manejadorBean_Inventario.valorProductop}"/>
-                        <p:outputLabel for="@previous" value="Valor del producto"/>
-                    </span>
-                    <br/>
-                    <span class="ui-float-label">
-                        <p:datePicker id="fechaRegistro" value="#{manejadorBean_Inventario.fechaRegistroD}" yearNavigator="true" monthNavigator="false"/>                                   
                         <p:outputLabel for="@previous" value="Fecha de registro"/>
-                    </span>
+                        <br/>
+                    
+                        <p:datePicker id="fechaRegistro" value="#{manejadorBean_Inventario.fechaRegistroD}" yearNavigator="true" monthNavigator="false"/>                                   
+                        
+
                     <br/>
-                    <span class="ui-float-label">
-                        <p:inputNumber id="cantidadComprada" value="#{manejadorBean_Inventario.cantidadComprada}"/>
+                    
+                        <p:outputLabel for="@previous" value="Valor del producto"/>
+                        <br/>
+                    
+                        <p:inputNumber id="valorProductoP" value="#{manejadorBean_Inventario.valorProductop}"/>
+                        
+                    <br/>
+                    
                         <p:outputLabel for="@previous" value="Cantidad comprada"/>
-                    </span>
+                        <br/>
+                    
+                        <p:inputNumber id="cantidadComprada" value="#{manejadorBean_Inventario.cantidadComprada}"/>
+                        
+
                     <br/>
-                    <span class="ui-float-label">
-                        <p:inputNumber id="cantidadDisponible" value="#{manejadorBean_Inventario.cantidadDisponible}"/>
                         <p:outputLabel for="@previous" value="Cantidad disponible"/>
-                    </span>
+                        <br/>
+                    
+                        <p:inputNumber id="cantidadDisponible" value="#{manejadorBean_Inventario.cantidadDisponible}"/>
+                        
+
                     <br/>
                     <br/>
                     
                     <p:commandButton value="Ingresar " action="#{manejadorBean_Inventario.guardar()}" update="msg"/>
-                    <br/>
-                    <br/>
+                    
                     
                     <p:commandButton value="Actualizar " action="#{manejadorBean_Inventario.actualizar()}" update="msg"/>
-                    <br/>
-                    <br/>
+                    
                     <p:commandButton value="Reporte " action="#{manejadorBean_Inventario.reporte()}" update="msg"/>
-                    <br/>
-                    <br/>
+                    
                      <p:commandButton value="Limpiar" update="iProducto" process="@this"
                                       action="#{manejadorBean_Inventario.limpiarCampos()}" />
                     <h:outputLabel id="msg" value="#{manejadorBean_Inventario.mensaje}" /> 
