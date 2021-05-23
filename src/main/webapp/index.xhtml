@@ -21,7 +21,7 @@
                 <p:panel header="Lista de productos">
                 
                     <div class="card">
-                        <p:dataTable var="inventario" value="#{manejadorBean_Inventario.inventario}">
+                        <p:dataTable var="inventario" value="#{manejadorBean_Inventario.inventario}" paginator="true"  rows="5">
                             <p:column headerText="Codigo">
                                 <h:outputText value="#{inventario.producto.codigo}" />
                             </p:column>

@@ -27,6 +27,12 @@ import java.util.logging.Logger;
 public class OperInventario implements Operaciones<inventario>{   
     @Override
     public int insertar(inventario dato) {
+        if(dato == null || dato.getProducto()== null ){
+            return 0; 
+        }  
+         if(dato.getProducto().getCodigo()== 0 || dato.getProducto().getValorProducto() == 0 || dato.getCantidadComprada()==0 || dato.getCantidadDisponible() == 0){
+                return 0;
+            }
         conexion c = new conexion();
         Connection cActiva = c.conectarse();
         if (cActiva != null){
@@ -40,14 +46,16 @@ public class OperInventario implements Operaciones<inventario>{
                 ps.setInt(5, dato.getProducto().getValorProducto());
                 ps.setInt(6, dato.getCantidadComprada());
                 ps.setInt(7, dato.getCantidadDisponible());
-
+                
                 int rta = ps.executeUpdate();
+                
                 return rta;
+                
             } catch (SQLException ex) {
                 Logger.getLogger(OperInventario.class.getName()).log(Level.SEVERE, null, ex);
             }
             finally{
-                c.desconectase(cActiva);
+                c.desconectarse(cActiva);
             }
         }
         return 0;
@@ -81,7 +89,7 @@ public class OperInventario implements Operaciones<inventario>{
                 Logger.getLogger(OperInventario.class.getName()).log(Level.SEVERE, null, ex);
             }
             finally{
-                c.desconectase(cActiva);
+                c.desconectarse(cActiva);
             }
         }
         return datos;
@@ -112,13 +120,16 @@ public class OperInventario implements Operaciones<inventario>{
                 Logger.getLogger(OperInventario.class.getName()).log(Level.SEVERE, null, ex);
             }
             finally{
-                c.desconectase(cActiva);
+                c.desconectarse(cActiva);
             }
         }
         return datos;
     }
 @Override
     public int actualizar(inventario dato) {
+        if(dato == null ){
+            return 0;
+        }
         conexion c = new conexion();
         Connection cActiva = c.conectarse();
         if (cActiva != null){
@@ -139,7 +150,7 @@ public class OperInventario implements Operaciones<inventario>{
                 Logger.getLogger(OperInventario.class.getName()).log(Level.SEVERE, null, ex);
             }
             finally{
-                c.desconectase(cActiva);
+                c.desconectarse(cActiva);
             }
         }
         return 0;

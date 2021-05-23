@@ -27,7 +27,7 @@ public class conexion {
         return null;
     }
 
-    public void desconectase(Connection dato){
+    public void desconectarse(Connection dato){
         if (dato != null){
             try {
                 dato.close();
