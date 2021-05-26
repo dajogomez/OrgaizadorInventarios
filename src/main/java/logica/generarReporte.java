@@ -15,12 +15,21 @@ import dto.reporte;
  * @author chicu
  */
 public class generarReporte {
+    
     reporte R = new reporte();
+    
         public int cantidadV(int cantidadActual, int cantidadComprada){
+            if (cantidadActual == 0 || cantidadComprada == 0 || cantidadActual<0 || cantidadComprada<0) {                
+                return 0;
+            }
+    
         R.setCantidadVentas(cantidadComprada - cantidadActual) ; 
         return R.getCantidadVentas();
     }
     public int valorV(int valorProducto, int cantidadV){
+        if (valorProducto == 0 || cantidadV == 0 || valorProducto<0 || cantidadV<0) {                
+                return 0;
+            }
         R.setValorVentasTotales(valorProducto*cantidadV);
         return R.getValorVentasTotales();
     }

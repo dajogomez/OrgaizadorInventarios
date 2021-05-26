@@ -11,6 +11,7 @@ import java.util.Date;
 public class Utilidades {
     
     public String convertirFecha(Date fecha){
+        System.out.println();
         String fechaS;        
         DateFormat formato = new SimpleDateFormat("yyyy/MM/dd");        
 	fechaS = formato.format(fecha);    

@@ -210,8 +210,9 @@ public class ManejadorBean_Inventario implements Serializable{
         this.fechaRegistroD = null;
         this.cantidadComprada=0;
         this.cantidadDisponible=0;
-
-
+        
+        int lugar = inventario.indexOf(this.codigoP);
+        inventario.get(lugar).getProducto().getCodigo();
     
         FacesMessage msg = new FacesMessage("Se limpiaron los campos correctamente");
         FacesContext.getCurrentInstance().addMessage(null, msg);

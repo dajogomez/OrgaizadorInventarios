@@ -25,12 +25,13 @@ import java.util.logging.Logger;
  * @author chicu
  */
 public class OperInventario implements Operaciones<inventario>{   
-    @Override
+   @Override
     public int insertar(inventario dato) {
         if(dato == null || dato.getProducto()== null ){
             return 0; 
         }  
-         if(dato.getProducto().getCodigo()== 0 || dato.getProducto().getValorProducto() == 0 || dato.getCantidadComprada()==0 || dato.getCantidadDisponible() == 0){
+         if(dato.getProducto().getCodigo()<= 0 || dato.getProducto().getValorProducto() == 0 || dato.getCantidadComprada()==0 || dato.getCantidadDisponible() == 0  || dato.getProducto().getNombre().isEmpty()
+                 || dato.getFechaRegistro().isEmpty() || dato.getProducto().getFechaVencimiento().isEmpty() ){
                 return 0;
             }
         conexion c = new conexion();
@@ -125,11 +126,15 @@ public class OperInventario implements Operaciones<inventario>{
         }
         return datos;
     }
-@Override
+   @Override
     public int actualizar(inventario dato) {
-        if(dato == null ){
-            return 0;
-        }
+        if(dato == null || dato.getProducto()== null ){
+            return 0; 
+        }  
+         if(dato.getProducto().getCodigo()<= 0 || dato.getProducto().getValorProducto() == 0 || dato.getCantidadComprada()==0 || dato.getCantidadDisponible() == 0  || dato.getProducto().getNombre().isEmpty()
+                 || dato.getFechaRegistro().isEmpty() || dato.getProducto().getFechaVencimiento().isEmpty() ){
+                return 0;
+            }
         conexion c = new conexion();
         Connection cActiva = c.conectarse();
         if (cActiva != null){
